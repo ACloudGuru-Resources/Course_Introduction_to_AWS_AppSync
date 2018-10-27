@@ -1,0 +1,42 @@
+# schemas/test-queries.graphql
+query GetQuestion {
+  getQuestion(id: "e822ba66-17f9-477a-8a89-500839a35c21") {
+    id
+    text
+    answers
+    explanation
+  }
+}
+
+mutation NewColorQuestion {
+  createQuestion(input: {
+    text: "What is your favorite color?", 
+    explanation: "Purple, of course!", 
+    answers: [
+      "{\"text\": \"Orange\", \"correct\": false}", 
+      "{\"text\": \"Purple\", \"correct\": true}", 
+      "{\"text\": \"Yellow\", \"correct\": false}"
+    ]
+  }) {
+    id
+    answers
+    text
+  }
+}
+
+mutation NewServiceQuestion {
+  createQuestion(input: {
+    text: "What is your favorite AWS service?", 
+    explanation: "AppSync, what else?", 
+    answers: [
+      "{\"text\": \"AWS Lambda\", \"correct\": false}", 
+      "{\"text\": \"AWS AppSync\", \"correct\": true}", 
+      "{\"text\": \"AWS S3\", \"correct\": false}"
+    ]
+  }) {
+    id
+    answers
+    text
+  }
+}
+

@@ -1,0 +1,26 @@
+type Question {
+  id: ID!
+  text: String!
+  explanation: String
+  answers: [AWSJSON]
+}
+
+type PaginatedQuestions {
+  nextToken: String
+  items: [Question]
+}
+
+type Query {
+  getQuestion(id: ID!): Question
+  listQuestions(limit: Int, nextToken: String): PaginatedQuestions
+}
+
+input CreateQuestionInput {
+  text: String!
+  explanation: String
+  answers: [AWSJSON]
+}
+
+type Mutation {
+  createQuestion(input: CreateQuestionInput!): Question
+}

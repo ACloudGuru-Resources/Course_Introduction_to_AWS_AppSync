@@ -1,0 +1,20 @@
+type Question {
+  id: ID!
+  text: String!
+  explanation: String
+  answers: [AWSJSON]
+}
+
+type Query {
+  getQuestion(id: ID!): Question
+}
+
+input CreateQuestionInput {
+  text: String!
+  explanation: String
+  answers: [AWSJSON]
+}
+
+type Mutation {
+  createQuestion(input: CreateQuestionInput!): Question
+}
