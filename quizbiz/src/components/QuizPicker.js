@@ -80,7 +80,7 @@ class QuizPicker extends Component {
             }}
             >
                 {({ data, loading }) => {
-                    if (loading || data === null || data.listQuizzes === undefined) return []
+                    if (loading || data === undefined || data === null || data.listQuizzes === undefined) return []
                     return (
                         <Menu>
                             {this.renderDropdowns(data)}
