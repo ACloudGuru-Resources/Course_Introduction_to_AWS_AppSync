@@ -2,7 +2,7 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "QuizBizQuestionTable",
+            "Sid": "QuizBizQuestions",
             "Effect": "Allow",
             "Action": [
                 "dynamodb:BatchGetItem",
