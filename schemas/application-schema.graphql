@@ -1,21 +1,24 @@
-type Question @model @versioned {
+type Question
+  @model {
   id: ID!
   text: String!
   tags: [String]
   links: [String]
   explanation: String
-  answers: [Answer] @connection(name: "QuestionChoices")
+  answers: [Answer] @hasMany
 }
 
-type Answer @model @versioned {
+type Answer
+  @model {
   id: ID!
   text: String
   correct: Boolean
-  question: Question @connection(name: "QuestionChoices")
+  question: Question @hasOne
 }
 
-type Quiz @model(queries: {list: "listQuizzes", get: "getQuiz"}) @versioned {
+type Quiz
+  @model(queries: {list: "listQuizzes", get: "getQuiz"}) {
   id: ID!
   title: String!
-  questions: [Question] @connection
+  questions: [Question] @hasMany
 }

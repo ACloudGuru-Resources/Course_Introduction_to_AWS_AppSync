@@ -50,7 +50,8 @@ mutation (
   createAnswer(input: {
     text: $text,
     correct: $correct,
-    answerQuestionId: $questionId
+    answerQuestionId: $questionId,
+    questionAnswersId: $questionId
   })
   {
    id
@@ -70,7 +71,7 @@ const GqlRetry = async (query, variables) => {
         }
     )
 };
-        
+
 class QuizInput extends Component {
     constructor(props) {
         super(props);

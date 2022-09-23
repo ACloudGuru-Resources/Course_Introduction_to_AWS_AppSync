@@ -1,0 +1,27 @@
+type Question
+  @model
+  @auth(rules: [{ allow: private }]) {
+  id: ID!
+  text: String!
+  tags: [String]
+  links: [String]
+  explanation: String
+  answers: [Answer] @hasMany
+}
+
+type Answer
+  @model
+  @auth(rules: [{ allow: private }]) {
+  id: ID!
+  text: String
+  correct: Boolean
+  question: Question @hasOne
+}
+
+type Quiz
+  @model(queries: {list: "listQuizzes", get: "getQuiz"})
+  @auth(rules: [{ allow: private }]) {
+  id: ID!
+  title: String!
+  questions: [Question] @hasMany
+}
